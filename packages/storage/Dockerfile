@@ -2,7 +2,8 @@ FROM node:18
 WORKDIR /usr/src/app/
 COPY ./packages/storage/package*.json ./packages/storage/
 RUN npm --prefix ./packages/storage/ ci
-COPY ./ ./
+COPY ./package*.json ./
+COPY ./tsconfig.json ./
 RUN npm ci
 COPY ./packages/storage/ ./packages/storage/
 COPY ./packages/common/ ./packages/common/
