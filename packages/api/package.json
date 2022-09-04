@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "./node_modules/.bin/ts-node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "joi": "^17.6.0"
+  },
+  "devDependencies": {
+    "@types/hapi__hapi": "^20.0.12",
+    "ts-node": "^10.9.1"
+  },
+  "description": ""
+}

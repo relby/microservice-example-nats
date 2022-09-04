@@ -1,0 +1,22 @@
+{
+  "name": "request-reply-nats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "api": "./node_modules/.bin/ts-node ./packages/api/index.ts",
+    "storage": "./node_modules/.bin/ts-node ./packages/storage/index.ts",
+    "start": "npm run api & npm run storage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nats": "^2.7.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "ts-node": "^10.9.1"
+  }
+}
