@@ -6,7 +6,8 @@
   "scripts": {
     "api": "./node_modules/.bin/ts-node ./packages/api/index.ts",
     "storage": "./node_modules/.bin/ts-node ./packages/storage/index.ts",
-    "start": "npm run api & npm run storage"
+    "start": "npm run api & npm run storage",
+    "start:win": "start npm run api & start npm run storage"
   },
   "keywords": [],
   "author": "",
