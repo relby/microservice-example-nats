@@ -16,6 +16,10 @@ $ npm ci
 $ npm --prefix ./packages/api ci
 $ npm --prefix ./packages/storage ci
 ```
+Сборка проекта
+```console
+$ npm run build
+```
 Запуск (Unix-like системы)
 ```console
 $ npm start

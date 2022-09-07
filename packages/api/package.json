@@ -4,7 +4,7 @@
   "main": "index.ts",
   "scripts": {
     "build": "../../node_modules/.bin/tsc",
-    "dev": "./node_modules/.bin/ts-node .",
+    "dev": "../../node_modules/.bin/nodemon .",
     "start": "node ./dist/api/index.js"
   },
   "keywords": [],
@@ -15,8 +15,7 @@
     "joi": "^17.6.0"
   },
   "devDependencies": {
-    "@types/hapi__hapi": "^20.0.12",
-    "ts-node": "^10.9.1"
+    "@types/hapi__hapi": "^20.0.12"
   },
   "description": ""
 }

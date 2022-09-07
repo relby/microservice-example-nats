@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "build": "../../node_modules/.bin/tsc",
-    "dev": "./node_modules/.bin/ts-node .",
+    "dev": "../../node_modules/.bin/nodemon .",
     "start": "node ./dist/storage/index.js"
   },
   "keywords": [],
@@ -15,8 +15,5 @@
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.9"
-  },
-  "devDependencies": {
-    "ts-node": "^10.9.1"
   }
 }
