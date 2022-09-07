@@ -4,10 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "api": "./node_modules/.bin/ts-node ./packages/api/index.ts",
-    "storage": "./node_modules/.bin/ts-node ./packages/storage/index.ts",
-    "start": "npm run api & npm run storage",
-    "start:win": "start npm run api & start npm run storage"
+    "build:api": "npm --prefix ./packages/api run build",
+    "build:storage": "npm --prefix ./packages/storage run build",
+    "build": "npm run build:api && npm run build:storage",
+    "dev:api": "./node_modules/.bin/ts-node ./packages/api/index.ts",
+    "dev:storage": "./node_modules/.bin/ts-node ./packages/storage/index.ts",
+    "dev": "npm run dev:api & npm run dev:storage",
+    "dev:win": "start npm run dev:api & start npm run dev:storage",
+    "start:api": "npm --prefix ./packages/api start",
+    "start:storage": "npm --prefix ./packages/storage start",
+    "start": "npm run start:api & npm run start:storage",
+    "start:win": "start npm run start:api & start npm run start:storage"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +25,7 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.2"
   }
 }

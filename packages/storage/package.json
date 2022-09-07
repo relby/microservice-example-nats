@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "./node_modules/.bin/ts-node ."
+    "build": "../../node_modules/.bin/tsc",
+    "dev": "./node_modules/.bin/ts-node .",
+    "start": "node ./dist/storage/index.js"
   },
   "keywords": [],
   "author": "",
