@@ -38,12 +38,12 @@ $ docker-compose build
 ```console
 $ docker-compose up -d
 ```
-## Routes:
-|Method|Route|Description|
+## Роуты:
+|Метод|Роут|Описание|
 |---|---|---|
-|GET|/api/test|Get all Test entities from the datebase|
-|GET|/api/products|Get all Products entities from the datebase|
-|GET|/api/products/{id}|Get a specific Product by id|
-|POST|/api/products|Create a Product|
-|PUT|/api/products/{id}|Update a Product by id|
-|DELETE|api/products/{id}|Delete Product by id|
+|GET|/api/test|Получить все Test сущности из бд|
+|GET|/api/products|Получить все Product сущности из бд|
+|GET|/api/products/{id}|Получить Product по айди|
+|POST|/api/products|Создать Product|
+|PUT|/api/products/{id}|Обновить Product по айди|
+|DELETE|api/products/{id}|Удалить Product по айди|
