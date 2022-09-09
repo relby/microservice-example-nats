@@ -9,16 +9,21 @@
 
 Дополнительно я реалировал сущность Product и простейшие CRUD операции над ней. Что-бы лучше понять typeorm.
 
-## Старт приложения:
-Установка зависимостей
+## Установка зависимостей
 ```console
 $ npm ci
 $ npm --prefix ./packages/api ci
 $ npm --prefix ./packages/storage ci
 ```
+## Старт приложения:
 Сборка проекта
 ```console
 $ npm run build
+```
+Также понадобятся две зависимости (nats, postgres). Легче всего их установить через [docker](https://www.docker.com/).
+```console
+$ docker run -d --name nats -p 4222:4222 nats
+$ docker run -d --name postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 postgres
 ```
 Запуск (Unix-like системы)
 ```console
@@ -29,7 +34,7 @@ $ npm start
 $ npm run start:win
 ```
 
-### или можно запустить через [docker](https://docker.com)
+### или все сразу можно запустить через [docker-compose](https://docs.docker.com/compose/)
 Создание docker образов (api, storage, postres и nats)
 ```console
 $ docker-compose build
