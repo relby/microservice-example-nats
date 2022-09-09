@@ -1,5 +1,5 @@
-import { StorageMethods } from "../common/constants";
-import { Transport } from "../common/Transport";
+import { StorageMethods } from "../../common/constants";
+import { Transport } from "../../common/Transport";
 import * as ProductController from './controllers/Product.controller'
 import * as TestController from './controllers/Test.controller'
 import { initializeDB } from "./repository";

@@ -1,6 +1,6 @@
 import { AppDataSource } from "../repository"
 import { Product } from "../repository/entities/Product.entity"
-import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from "../../common/payloads/storage/product"
+import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from "../../../common/payloads/storage/product"
 
 const productRepo = AppDataSource.getRepository(Product)
 

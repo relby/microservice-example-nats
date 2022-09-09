@@ -1,9 +1,9 @@
 import Hapi from '@hapi/hapi';
 import Boom from '@hapi/boom';
 import Joi from 'joi';
-import { Transport } from '../common/Transport';
-import { StorageMethods } from '../common/constants';
-import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../common/payloads/storage/product';
+import { Transport } from '../../common/Transport';
+import { StorageMethods } from '../../common/constants';
+import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../../common/payloads/storage/product';
 
 (async () => {
 
