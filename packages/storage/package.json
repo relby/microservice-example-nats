@@ -6,7 +6,7 @@
   "scripts": {
     "build": "../../node_modules/.bin/tsc",
     "dev": "../../node_modules/.bin/nodemon",
-    "start": "node ./dist/storage/index.js"
+    "start": "node ./dist/storage/src/index.js"
   },
   "keywords": [],
   "author": "",
