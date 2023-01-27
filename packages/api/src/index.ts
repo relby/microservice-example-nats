@@ -1,17 +1,45 @@
 import Hapi from '@hapi/hapi';
 import Boom from '@hapi/boom';
 import Joi from 'joi';
+import Inert from '@hapi/inert';
+import Vision from '@hapi/vision';
+import HapiSwagger from 'hapi-swagger';
 import { Transport } from '../../common/Transport';
 import { StorageMethods } from '../../common/constants';
 import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../../common/payloads/storage/product';
+import PackageJSON from '../package.json';
 
 (async () => {
 
     // Create server
     const server = Hapi.server({
         port: process.env.PORT ?? 3000,
-        host: process.env.HOST ?? 'localhost'
+        host: process.env.HOST ?? 'localhost',
     });
+
+    const swaggerOptions: HapiSwagger.RegisterOptions = {
+        info: {
+            title: PackageJSON.name,
+            version: PackageJSON.version,
+        },
+        grouping: 'tags',
+    };
+
+    const plugins = [
+        {
+            plugin: Inert,
+        },
+        {
+            plugin: Vision,
+        },
+        {
+            plugin: HapiSwagger,
+            options: swaggerOptions,
+        },
+    ];
+
+    // @ts-ignore
+    await server.register(plugins);
 
     const transport = new Transport();
     await transport.connect();
@@ -25,7 +53,10 @@ import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../.
                 null
             );
         },
-    })
+        options: {
+            tags: ['api', 'test'],
+        },
+    });
 
     server.route({
         method: 'GET',
@@ -35,8 +66,11 @@ import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../.
                 StorageMethods.Product.find,
                 null
             );
-        }
-    })
+        },
+        options: {
+            tags: ['api', 'products'],
+        },
+    });
 
     server.route({
         method: 'GET',
@@ -58,9 +92,10 @@ import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../.
                 params: Joi.object({
                     id: Joi.number().integer().min(1)
                 })
-            }
-        }
-    })
+            },
+            tags: ['api', 'products'],
+        },
+    });
 
     server.route({
         method: 'POST',
@@ -78,10 +113,11 @@ import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../.
                     name: Joi.string(),
                     price: Joi.number(),
                     left: Joi.number().integer()
-                }).options({ stripUnknown: true })
-            }
-        }
-    })
+                }).options({ stripUnknown: true }),
+            },
+            tags: ['api', 'products'],
+        },
+    });
 
     server.route({
         method: 'PUT',
@@ -108,9 +144,10 @@ import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../.
                     price: Joi.number(),
                     left: Joi.number().integer()
                 }).options({ stripUnknown: true })
-            }
-        }
-    })
+            },
+            tags: ['api', 'products'],
+        },
+    });
 
     server.route({
         method: 'DELETE',
@@ -132,12 +169,13 @@ import { GetByIdPayload, CreateProductPayload, UpdateProductPayload } from '../.
                 params: Joi.object({
                     id: Joi.number().integer().min(1)
                 })
-            }
-        }
-    })
+            },
+            tags: ['api', 'products'],
+        },
+    });
 
 
-    await server.start()
+    await server.start();
     console.log(`Server running on ${server.info.uri}`);
 
 })();
